@@ -1,87 +1,239 @@
-# Movies Play
+# 🎥 Movies Play
 
-Este proyecto es una aplicación de microservicios desarrollada con Spring Boot para gestionar información sobre películas. La aplicación expone una API RESTful para realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) y, de manera innovadora, utiliza la librería LangChain4j para integrar inteligencia artificial y generar sugerencias de películas basadas en preferencias del usuario.
+🎬 **Aplicación de Gestión de Películas • IA y Persistencia** 🎬
 
-## Características Principales
+```
+     🍿  M O V I E S P L A Y  🍿
+ ╭─────────────────────────────╮
+ │ 🤖Plataforma de Películas 🤖 │
+ │    🎬 IA y API RESTful 🎬    │
+ ╰─────────────────────────────╯
+```
 
-- **API RESTful**: Endpoints bien definidos para gestionar películas
-- **Spring Boot 3.5.4**: Un framework robusto y de alto rendimiento
-- **Java 21**: Utiliza la última versión LTS (Long-Term Support) de Java
-- **Gradle**: Administrador de dependencias y herramienta de construcción del proyecto
-- **Spring Data JPA**: Para la persistencia de datos
-- **PostgreSQL**: Base de datos relacional utilizada en el proyecto
-- **MapStruct**: Herramienta de mapeo de objetos para convertir entre DTOs y entidades de forma eficiente
-- **LangChain4j**: Integración con modelos de lenguaje de OpenAI (como gpt-4o-mini) para generar sugerencias de películas
-- **OpenAPI**: Documentación automática de la API con Swagger UI
-- **Docker**: Soporte para la construcción y despliegue en contenedores, utilizando una configuración de varias etapas para optimizar el tamaño de la imagen
+⭐ **Una plataforma innovadora para gestionar y sugerir películas utilizando inteligencia artificial** ⭐
 
-## Arquitectura del Proyecto
+## 📋 Tabla de Contenidos
 
-El proyecto sigue una arquitectura por capas, con una estructura de paquetes clara:
+- [🌍 Acerca del Proyecto](#-acerca-del-proyecto)
+- [✨ Características Principales](#-características-principales)
+- [🚀 Demo en Vivo](#-demo-en-vivo)
+- [⚡️ Tecnologías](#️-tecnologías)
+- [📦 Instalación](#-instalación)
+- [⚙️ Configuración](#️-configuración)
+- [🎮 Uso](#-uso)
+- [📡 API Documentation](#-api-documentation)
+- [📁 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🗺️ Roadmap](#️-roadmap)
+- [🤝 Contribuir](#-contribuir)
+- [📄 Licencia](#-licencia)
+- [📞 Contacto](#-contacto)
+- [🙏 Agradecimientos](#-agradecimientos)
 
-- `com.movies_play.web.controller`: Contiene los controladores REST (MovieController, HelloController)
-- `com.movies_play.domain.service`: Implementa la lógica de negocio (MovieService, MoviesPlayService)
-- `com.movies_play.domain.dto`: Define los DTOs para la transferencia de datos (MovieDto, SuggestRequestDto, etc.)
-- `com.movies_play.persistence`: Gestiona la capa de persistencia, incluyendo el repositorio de Spring Data JPA y los mappers (MovieMapper, GenreMapper)
-- `com.movies_play.persistence.entity`: Define las entidades de la base de datos (MovieEntity)
+## 🌍 Acerca del Proyecto
 
-## Cómo Empezar
+**movies-play** es una aplicación de microservicios desarrollada con Spring Boot para gestionar información sobre películas. El proyecto expone una API RESTful que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) sobre un catálogo de películas. Además, integra la librería LangChain4j para aprovechar modelos de lenguaje y generar sugerencias personalizadas de películas.
 
-### Requisitos Previos
+### 🎯 Objetivos
 
-- JDK 21
-- Gradle
-- Docker
-- Una instancia de PostgreSQL
+El proyecto fue diseñado para crear una plataforma robusta y escalable que combine:
 
-### Configuración de la Base de Datos
+- Gestión de datos de películas a través de una API REST
+- Inteligencia artificial para ofrecer recomendaciones dinámicas
+- Persistencia de datos eficiente con Spring Data JPA y PostgreSQL
+- Despliegue sencillo en contenedores con Docker
 
-El proyecto incluye archivos de configuración para diferentes entornos:
+## ✨ Características Principales
 
-- `application-dev.properties`: Conexión a una base de datos local en localhost:5432 con usuario fernando
-- `application-prod.properties`: Configuración para un entorno de producción, con una URL de base de datos externa
+| Característica | Descripción | Estado |
+|---|---|---|
+| **API RESTful** | Endpoints bien definidos para operaciones CRUD | ✅ |
+| **Integración con IA** | Genera sugerencias de películas con LangChain4j y el modelo gpt-4o-mini | ✅ |
+| **Persistencia con JPA** | Usa Spring Data JPA y un repositorio para gestionar los datos | ✅ |
+| **Base de Datos PostgreSQL** | El proyecto está configurado para usar PostgreSQL | ✅ |
+| **Mapeo de Objetos** | Usa MapStruct para convertir entre DTOs y entidades de forma eficiente | ✅ |
+| **Documentación Automática** | Genera la documentación de la API con OpenAPI y Swagger UI | ✅ |
+| **Soporte para Docker** | Un Dockerfile con un enfoque de varias etapas para crear imágenes optimizadas | ✅ |
 
-Además, el archivo `data.sql` se ejecuta automáticamente para inicializar la base de datos con películas de ejemplo.
+## 🚀 Demo en Vivo
 
-### Compilación y Ejecución
+Explora todas las funcionalidades de la API en el entorno de despliegue:
 
-Para construir el proyecto, ejecuta el siguiente comando con Gradle:
+- 🔗 **Demo de la API**: [https://moviesplay.onrender.com/movies-play/api/movies](https://moviesplay.onrender.com/movies-play/api/movies)
+- 🔗 **Documentación OpenAPI (Swagger)**: [https://moviesplay.onrender.com/movies-play/api/swagger-ui.html](https://moviesplay.onrender.com/movies-play/api/swagger-ui.html)
+
+## ⚡️ Tecnologías
+
+### Backend
+- **Spring Boot** 3.5.4
+- **Java** 21
+- **Gradle**
+- **PostgreSQL**
+- **Spring Data JPA**
+- **LangChain4j** (dev.langchain4j-open-ai-spring-boot-starter)
+- **MapStruct** (org.mapstruct:mapstruct)
+
+### DevOps & Herramientas
+- **Docker**
+- **Springdoc-Openapi**
+- **Lombok**
+- **Hibernate Validator** (spring-boot-starter-validation)
+
+## 📦 Instalación
+
+### Prerrequisitos
+Asegúrate de tener instalado:
+
+- **JDK 21**
+- **Gradle** (el proyecto incluye el wrapper)
+- **Docker**
+- **PostgreSQL**
+
+### Instalación Rápida
 
 ```bash
+# 1. Clonar el repositorio
+git clone https://github.com/galdamesf/movies-play.git
+cd movies-play
+
+# 2. Compilar el proyecto
 ./gradlew build
 ```
 
-Una vez construido, puedes ejecutar la aplicación directamente desde el JAR generado o a través de Docker.
+## ⚙️ Configuración
 
-### Ejecución con Docker
+### Variables de Entorno
 
-El proyecto está configurado para ser ejecutado en un contenedor de Docker.
+El proyecto utiliza perfiles de Spring para la configuración de diferentes entornos:
 
-1. **Construir la imagen de Docker**:
-   ```bash
-   docker build -t movies_play .
-   ```
+- **application.properties**: Define el perfil activo (`spring.profiles.active=dev`) y la ruta de la API (`/movies-play/api`)
+- **application-dev.properties**: Configuración para desarrollo, con conexión a una base de datos local y el puerto 8090
+- **application-prod.properties**: Configuración para producción, con conexión a una base de datos externa y el puerto 8080
 
-2. **Ejecutar el contenedor**:
-   ```bash
-   docker run -p 8080:8080 movies_play
-   ```
+### Base de Datos
 
-La aplicación estará disponible en [http://localhost:8080](http://localhost:8080).
+Los archivos `data.sql` y `schema.sql` se ejecutan automáticamente para inicializar la base de datos con tablas y datos de ejemplo al arrancar la aplicación.
 
-## Endpoints de la API
+## 🎮 Uso
 
-La API se encuentra en la ruta `/movies-play/api` y la documentación de Swagger se puede acceder en [http://localhost:8080/movies-play/api/swagger-ui.html](http://localhost:8080/movies-play/api/swagger-ui.html).
+### Desarrollo
 
-Aquí están algunos de los endpoints principales:
+Ejecuta la aplicación con Gradle, que usará la configuración de `application-dev.properties`:
 
-- `GET /movies-play/api/movies`: Obtiene una lista de todas las películas
-- `GET /movies-play/api/movies/{id}`: Obtiene una película por su ID
-- `POST /movies-play/api/movies`: Agrega una nueva película
-- `PUT /movies-play/api/movies/{id}`: Actualiza una película existente
-- `DELETE /movies-play/api/movies/{id}`: Elimina una película por su ID
-- `POST /movies-play/api/movies/suggest`: Genera sugerencias de películas usando la IA, basándose en preferencias de usuario
+```bash
+# Ejecutar la aplicación en modo de desarrollo
+./gradlew bootRun
+```
 
-## Contribuciones
+La aplicación estará disponible en [http://localhost:8090/movies-play/api](http://localhost:8090/movies-play/api).
 
-Siéntete libre de contribuir a este proyecto. Para ello, por favor crea un fork del repositorio y envía un Pull Request con tus cambios.
+### Docker
+
+El Dockerfile utiliza un build multi-stage para crear una imagen optimizada:
+
+```bash
+# 1. Construir la imagen de Docker
+docker build -t movies_play .
+
+# 2. Ejecutar el contenedor con el perfil de producción
+docker run -p 8080:8080 -e spring.profiles.active=prod movies_play
+```
+
+La aplicación estará disponible en [http://localhost:8080/movies-play/api](http://localhost:8080/movies-play/api).
+
+## 📡 API Documentation
+
+La documentación de la API se genera automáticamente con OpenAPI y Swagger UI.
+
+**URL de la documentación**: [http://localhost:8080/movies-play/api/swagger-ui.html](http://localhost:8080/movies-play/api/swagger-ui.html)
+
+### Endpoints Principales
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| `GET` | `/api/movies` | Obtiene una lista de todas las películas |
+| `GET` | `/api/movies/{id}` | Obtiene una película por su ID |
+| `POST` | `/api/movies` | Crea una nueva película |
+| `PUT` | `/api/movies/{id}` | Actualiza una película existente |
+| `DELETE` | `/api/movies/{id}` | Elimina una película |
+| `POST` | `/api/movies/suggest` | Genera sugerencias de películas con IA |
+
+## 📁 Estructura del Proyecto
+
+```
+movies-play/
+├── .gradle/
+├── build/
+├── gradle/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── movies_play/
+│   │   │           ├── domain/         # Lógica de negocio
+│   │   │           │   ├── dto/
+│   │   │           │   ├── exception/
+│   │   │           │   ├── repository/
+│   │   │           │   └── service/
+│   │   │           ├── persistence/    # Capa de persistencia
+│   │   │           │   ├── crud/
+│   │   │           │   ├── entity/
+│   │   │           │   └── mapper/
+│   │   │           └── web/            # Capa web
+│   │   │               └── controller/
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       ├── application-dev.properties
+│   │       ├── application-prod.properties
+│   │       ├── data.sql
+│   │       └── schema.sql
+│   └── test/
+├── .gitignore
+├── build.gradle
+├── Dockerfile
+└── README.md
+```
+
+## 🗺️ Roadmap
+
+### ✅ Fase 1 - MVP (Completado)
+- API RESTful para operaciones CRUD de películas
+- Persistencia con PostgreSQL
+- Integración básica de LangChain4j para sugerencias
+
+### 🔄 Fase 2 - Mejoras y Funcionalidades (En Desarrollo)
+- Implementar autenticación y autorización (JWT/OAuth2)
+- Añadir un sistema de calificación de películas
+- Crear endpoints de búsqueda por género o título
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Siéntete libre de abrir issues o enviar pull requests.
+
+### Proceso de Contribución
+
+1. Fork el proyecto
+2. Clona tu fork (`git clone https://github.com/tu-usuario/movies-play.git`)
+3. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
+4. Commit tus cambios (`git commit -m 'feat: añade nueva funcionalidad'`)
+5. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+6. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la **Licencia MIT**. Consulta el archivo `LICENSE` para más detalles.
+
+## 📞 Contacto
+
+- 📧 **Email**: galdamesvilchesf@gmail.com
+- 🔗 **Proyecto**: [https://github.com/galdamesf/movies-play](https://github.com/galdamesf/movies-play)
+
+## 🙏 Agradecimientos
+
+- A la comunidad de **Spring Boot** y **Gradle** por sus excelentes herramientas
+- A **LangChain4j** por facilitar la integración con modelos de lenguaje
+
+---
+
+⭐ **¡No olvides darle una estrella al proyecto si te resulta útil!**
+
+*Hecho con 💚 por movies-play*
